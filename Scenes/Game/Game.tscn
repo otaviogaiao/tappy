@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm0768qstgvm6"]
+[gd_scene load_steps=9 format=3 uid="uid://cm0768qstgvm6"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Game.cs" id="1_bho3g"]
 [ext_resource type="PackedScene" uid="uid://bl28rfbph1kdf" path="res://Scenes/Pipes/Pipes.tscn" id="2_g82aw"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://mue5j6o6pwxa" path="res://Scenes/Plane/Plane.tscn" id="4_m74oj"]
 [ext_resource type="PackedScene" uid="uid://c3u08u2io1fi8" path="res://Scenes/Barrier/Barrier.tscn" id="5_cjl5p"]
 [ext_resource type="PackedScene" uid="uid://d1ui4rqp1g8pc" path="res://Scenes/Hud/Hud.tscn" id="6_cq8hd"]
+[ext_resource type="PackedScene" uid="uid://cofy047qflem5" path="res://Scenes/GameOver/GameOver.tscn" id="7_0e052"]
+[ext_resource type="PackedScene" uid="uid://chx2lpfwimswm" path="res://Scenes/ParallaxBg/ParallaxBg.tscn" id="8_a7o4i"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_spawnUpper", "_spawnLower", "_spawnTimer", "_pipesHolder")]
 script = ExtResource("1_bho3g")
@@ -16,6 +18,7 @@ _pipesHolder = NodePath("PipesHolder")
 _pipeScene = ExtResource("2_g82aw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(356, 447)
 texture = ExtResource("3_5bfe2")
 
@@ -44,3 +47,10 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("6_cq8hd")]
+
+[node name="CanvasLayerGameOver" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasLayerGameOver" instance=ExtResource("7_0e052")]
+
+[node name="ParallaxBg" parent="." instance=ExtResource("8_a7o4i")]
+z_index = -100

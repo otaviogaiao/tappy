@@ -30,12 +30,10 @@ public partial class ScoreManager : Node
 	public void SetScore(uint score)
 	{
 		_score = score;
-		GD.Print($"Score Increment: {_score}");
 		if (_score > _highScore)
 		{
 			_highScore = _score;
 			SaveScoreToFile();
-			GD.Print($"New High Score: {_highScore}");
 		}
 		SignalManager.Instance.EmitOnScored();
 	}

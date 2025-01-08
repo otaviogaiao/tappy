@@ -7,7 +7,8 @@ public partial class GameManager : Node
 	
 	private PackedScene _mainScene = GD.Load<PackedScene>("res://Scenes/Main/Main.tscn");
 	private PackedScene _gameScene = GD.Load<PackedScene>("res://Scenes/Game/Game.tscn");
-
+	public const float ScrollSpeed = 120.0f;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

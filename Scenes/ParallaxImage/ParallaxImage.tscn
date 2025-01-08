@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0rake1r2xif0"]
+
+[ext_resource type="Script" path="res://Scenes/ParallaxImage/ParallaxImage.cs" id="1_p5hjc"]
+
+[node name="ParallaxImage" type="Parallax2D" node_paths=PackedStringArray("_sprite")]
+script = ExtResource("1_p5hjc")
+_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+centered = false

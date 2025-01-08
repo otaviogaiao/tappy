@@ -29,7 +29,7 @@ public partial class Game : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("quit") || (Input.IsActionJustPressed("fly") && _isGameOver))
+		if (Input.IsActionJustPressed("quit") && !_isGameOver)
 		{
 			GameManager.Instance.LoadMain();
 		}
@@ -51,15 +51,10 @@ public partial class Game : Node2D
 	{
 		return (float)GD.RandRange(_spawnUpper.GlobalPosition.Y, _spawnLower.GlobalPosition.Y);
 	}
-
-	private void StopPipes()
-	{
-		_spawnTimer.Stop();
-	}
-
+	
 	private void OnGameOver()
 	{
-		StopPipes();
+		_spawnTimer.Stop();
 		_isGameOver = true;
 	}
 }

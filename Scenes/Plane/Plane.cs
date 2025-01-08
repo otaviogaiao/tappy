@@ -5,6 +5,7 @@ public partial class Plane : CharacterBody2D
 {
 	[Export] private AnimationPlayer _animationPlayer;
 	[Export] private AnimatedSprite2D _sprite;
+	[Export] private AudioStreamPlayer _engineSound;
 	
 	private const float Gravity = 800.0f;
 	private const float Power = -250.0f;
@@ -36,6 +37,7 @@ public partial class Plane : CharacterBody2D
 	public void Die()
 	{
 		SetPhysicsProcess(false);
+		_engineSound.Stop();
 		_sprite.Stop();
 		SignalManager.Instance.EmitOnPlaneDied();
 	}
